@@ -1,0 +1,48 @@
+@model MvcPlayers.Models.Players
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Players</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Namn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Namn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FödelseDatum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FödelseDatum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mål)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mål)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Assist)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Assist)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Skadad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Skadad)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-Nummer="@Model?.Nummer">Edit</a>
+    <a asp-action="Index">Back to List</a>
+</div>

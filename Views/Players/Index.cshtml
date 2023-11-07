@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MvcPlayers.Models.Players>
+@{
+    ViewData["Title"] = "Spelarna";
+    ViewBag.AllPlayers = Model.Count();
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Namn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FödelseDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mål)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skadad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nummer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Namn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FödelseDatum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mål)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Assist)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skadad)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { Nummer = item.Nummer }) |
+                    @Html.ActionLink("Details", "Details", new { Nummer = item.Nummer }) |
+                    @Html.ActionLink("Delete", "Delete", new { Nummer = item.Nummer })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>Antal Spelare: @ViewBag.AllPlayers</p>
