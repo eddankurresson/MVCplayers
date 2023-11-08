@@ -38,6 +38,15 @@ namespace Mvcplayers.Controllers
 
             return View();
         }
+        
+        [HttpPost]
+        public IActionResult Create(Players player)
+        {
+            Players.Add(player);
+
+            return RedirectToAction("Index", "Players");
+        }
+
         [HttpGet]
         public IActionResult IsPlayer()
         {
@@ -45,17 +54,9 @@ namespace Mvcplayers.Controllers
             {
                 if (HttpContext.Session.GetString("Username") == item.Namn)
                 {
-                    return View(); 
+                    return View();
                 }
             }
-            return RedirectToAction("Index", "Players");
-        }
-
-        [HttpPost]
-        public IActionResult Create(Players player)
-        {
-            Players.Add(player);
-
             return RedirectToAction("Index", "Players");
         }
 
@@ -79,6 +80,7 @@ namespace Mvcplayers.Controllers
                 updatePlayer.FödelseDatum = player.FödelseDatum;
                 updatePlayer.Mål = player.Mål;
                 updatePlayer.Assist = player.Assist;
+                updatePlayer.Skadad = player.Skadad;
             }
 
 
